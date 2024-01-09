@@ -46,11 +46,38 @@ string solution(vector<string> participant, vector<string> completion) {
 
 
 */  
-int main()
-{
-    vector<string> parti = { "mislav", "stanko", "a1na" };
-    vector<string> win = { "stanko", "ana", "mislav" };
 
-    solution(parti, win);
+/*
+    풀이 수정
+    정확성 7/7
+    효율성 5/5
+    * 다른 사람 참고해서 푼 코드.
+    * KP.1 -> begin, end, rbegin, rend의 차이점을 알았고, 적절한 stl을 써야하는 것을 알았다.
+*/             
+        
 
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion) {
+    string answer;
+    sort(participant.begin(), participant.end());
+    sort(completion.begin(), completion.end());
+    for (auto iter = completion.rbegin(); iter != completion.rend(); ++iter)
+    {
+        if (participant.back() != *iter)
+        {
+            answer = participant.back();
+            break;
+        }
+        participant.pop_back();
+    }
+    if (answer.empty())
+        answer = participant[0];
+    return answer;
 }
+
