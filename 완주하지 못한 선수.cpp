@@ -46,11 +46,3 @@ string solution(vector<string> participant, vector<string> completion) {
 
 
 */  
-int main()
-{
-    vector<string> parti = { "mislav", "stanko", "a1na" };
-    vector<string> win = { "stanko", "ana", "mislav" };
-
-    solution(parti, win);
-
-}
